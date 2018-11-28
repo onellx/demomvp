@@ -24,18 +24,25 @@ import com.llx.presenter.LoginPersenter;
  */
 
 public class LoginFragment extends Fragment implements LoginContract.View,View.OnClickListener{
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     private View view;
     private EditText username,passwd;
     private Button login;
     private LoginPersenter loginContract;
 
-
-//    public static LoginFragment newInstance(String str) {
-//        LoginFragment frag = new LoginFragment();
-//
-//        return frag;
-//    }
+    public static LoginFragment newInstance(String param1, String param2) {
+        LoginFragment fragment = new LoginFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Nullable
     @Override
